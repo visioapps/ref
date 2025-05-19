@@ -22,7 +22,7 @@
       --radius: 16px;
       --main-width: 850px;
       --spacing: 1.5rem;
-      --input-width: 120px;
+      --input-width: 30px;
       --label-width: 175px;
       --icon-size: 1rem;
     }
@@ -93,6 +93,7 @@
     .form-row input[type="number"],
     .form-row input[type="text"] {
       flex: 0 1 var(--input-width);
+      max-width: var(--input-width);
       background: var(--input-bg);
       color: var(--text);
       border: 2.5px solid var(--input-border);

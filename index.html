@@ -24,49 +24,60 @@
       --spacing: 1.5rem;
       --input-width: 120px;
       --label-width: 175px;
-      /* icônes */
       --icon-size: 1rem;
     }
     html, body {
-      background: var(--background); margin: 0; padding: 0;
+      background: var(--background);
+      margin: 0; padding: 0;
       font-family: 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
-      color: var(--text); font-size: 18px;
+      color: var(--text);
+      font-size: 18px;
     }
     h1 {
-      text-align: center; color: var(--label);
-      font-size: 2.2rem; font-weight: 700;
+      text-align: center;
+      color: var(--label);
+      font-size: 2.2rem;
+      font-weight: 700;
       margin: 2rem 0;
       letter-spacing: 0.04em;
     }
     .container {
-      max-width: var(--main-width); margin: 0 auto;
-      background: var(--card-bg); border-radius: var(--radius);
+      max-width: var(--main-width);
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
       box-shadow: var(--card-shadow);
-      padding: 2.3rem 2rem 2rem 2rem;
+      padding: 2.3rem 2rem;
       box-sizing: border-box;
       overflow-x: auto;
     }
     .eye-blocks {
-      display: flex; gap: 2rem;
-      justify-content: space-between; flex-wrap: wrap;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
     .eye-panel {
       flex: 1 1 350px;
       min-width: 320px; max-width: 400px;
       background: var(--card-bg);
-      border-radius: var(--radius); padding: 1.3rem 1.1rem;
+      border-radius: var(--radius);
+      padding: 1.3rem 1.1rem;
       box-shadow: 0 1px 8px rgba(70, 90, 120, 0.03);
       border: 1.5px solid #eef2f6;
       box-sizing: border-box;
       position: relative;
     }
     .eye-title {
-      font-size: 1.23rem; font-weight: 600; color: var(--blue-accent);
+      font-size: 1.23rem;
+      font-weight: 600;
+      color: var(--blue-accent);
       margin-bottom: 0.6rem;
     }
     form { width: 100%; }
     .form-row {
-      display: flex; align-items: center;
+      display: flex;
+      align-items: center;
       margin: 0.6em 0;
       gap: 1.1rem;
       width: 100%;
@@ -75,7 +86,9 @@
     .form-row label {
       flex: 0 0 var(--label-width);
       min-width: var(--label-width);
-      color: var(--label); font-weight: 500; font-size: 1.04rem;
+      color: var(--label);
+      font-weight: 500;
+      font-size: 1.04rem;
     }
     .form-row input[type="number"],
     .form-row input[type="text"] {
@@ -98,7 +111,6 @@
       background: var(--input-readonly);
       color: #8fa5b3;
     }
-    /* icônes */
     .form-row .icon {
       position: absolute;
       right: 12px;
@@ -107,26 +119,46 @@
     .colored-green + .icon { color: var(--green); }
     .colored-orange + .icon { color: var(--orange); }
     .colored-red + .icon { color: var(--red); }
-
-    /* curseurs */
-    .form-row .slider-wrap { display: flex; align-items: center; gap: 0.7em; flex: 1;}
-    .form-row input[type="range"] { flex: 1; accent-color: var(--blue-accent); }
-    .radio-row {
-      display: flex; align-items: center; gap: 1.3em; margin: .3em 0;
+    .form-row .slider-wrap {
+      display: flex; align-items: center; gap: 0.7em; flex: 1;
     }
-    .radio-row label { color: var(--label); font-size: 1.01rem;}
-
+    .form-row input[type="range"] {
+      flex: 1; accent-color: var(--blue-accent);
+    }
+    .radio-row {
+      display: flex; align-items: center; gap: 1.3em;
+      margin: 0.3em 0;
+    }
+    .radio-row label {
+      color: var(--label); font-size: 1.01rem;
+    }
     .anisometropie-block {
       margin: 1.2rem auto 0;
-      background: var(--card-bg); border-radius: var(--radius);
+      background: var(--card-bg);
+      border-radius: var(--radius);
       box-shadow: var(--card-shadow);
       padding: 1.1rem 2rem;
       max-width: 450px;
       display: flex; flex-direction: column; align-items: center;
     }
-    .anisometropie-block input { width: 90px; text-align: center;}
+    .anisometropie-block input {
+      width: 90px; text-align: center;
+    }
     .buttons { text-align: center; margin: 2.1rem 0; }
-
+    button {
+      background: var(--blue-accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 30px;
+      font-size: 1.12rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 14px rgba(100, 140, 190, 0.08);
+      transition: background 0.18s;
+      letter-spacing: 0.02em;
+    }
+    button:hover { background: #4674a8; }
     @media (max-width: 600px) {
       .eye-blocks {
         display: grid;
@@ -144,15 +176,87 @@
     <div class="eye-blocks">
       <!-- OD -->
       <div class="eye-panel" id="od-panel">
-        <div class="eye-title">Oeil Droit (OD)</div>
+        <div class="eye-title">Œil Droit (OD)</div>
         <form>
           <div class="form-row">
             <label>Sphère</label>
             <input id="od-sphere" type="number" step="0.25" class="colored-empty">
             <span class="icon"></span>
           </div>
-          <!-- reproduis cette structure pour chaque champ, en gardant les mêmes IDs -->
-          <!-- ... -->
+          <div class="form-row">
+            <label>Cylindre</label>
+            <input id="od-cylinder" type="number" step="0.25" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Équivalent sphérique</label>
+            <input id="od-equiv" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Pachymétrie (µm)</label>
+            <input id="od-pachy" type="number" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Kmin (D)</label>
+            <input id="od-kmin" type="number" step="0.01" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Kmax (D)</label>
+            <input id="od-kmax" type="number" step="0.01" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Pupillométrie (mm)</label>
+            <input id="od-pupille" type="number" step="0.1" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row radio-row">
+            <label><input name="od-tech" type="radio" value="lasik" checked> Lasik</label>
+            <label><input name="od-tech" type="radio" value="pkr"> PKR</label>
+            <label><input name="od-tech" type="radio" value="mito"> PKR mito</label>
+          </div>
+          <div class="form-row">
+            <label>Zone optique (mm)</label>
+            <div class="slider-wrap">
+              <input id="od-zone" type="range" min="60" max="85" step="5" value="65">
+              <span id="od-zone-label">6.5</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Capot (µm)</label>
+            <div class="slider-wrap">
+              <input id="od-capot" type="range" min="0" max="2" step="1" value="2">
+              <span id="od-capot-label">110</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Ablation centrale (µm)</label>
+            <input id="od-ablation" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>K post-op (D)</label>
+            <input id="od-kpost" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Mur LASIK (µm)</label>
+            <input id="od-mur-lasik" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>PTA LASIK (%)</label>
+            <input id="od-pta-lasik" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Mur PKR (µm)</label>
+            <input id="od-mur-pkr" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
           <div class="form-row">
             <label>PTA PKR (%)</label>
             <input id="od-pta-pkr" type="text" readonly class="colored-empty">
@@ -160,26 +264,247 @@
           </div>
         </form>
       </div>
-      <!-- OG identique en dupliquant OD et en remplaçant od- par og- -->
+      <!-- OG -->
       <div class="eye-panel" id="og-panel">
-        <!-- ... -->
+        <div class="eye-title">Œil Gauche (OG)</div>
+        <form>
+          <div class="form-row">
+            <label>Sphère</label>
+            <input id="og-sphere" type="number" step="0.25" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Cylindre</label>
+            <input id="og-cylinder" type="number" step="0.25" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Équivalent sphérique</label>
+            <input id="og-equiv" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Pachymétrie (µm)</label>
+            <input id="og-pachy" type="number" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Kmin (D)</label>
+            <input id="og-kmin" type="number" step="0.01" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Kmax (D)</label>
+            <input id="og-kmax" type="number" step="0.01" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Pupillométrie (mm)</label>
+            <input id="og-pupille" type="number" step="0.1" class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row radio-row">
+            <label><input name="og-tech" type="radio" value="lasik" checked> Lasik</label>
+            <label><input name="og-tech" type="radio" value="pkr"> PKR</label>
+            <label><input name="og-tech" type="radio" value="mito"> PKR mito</label>
+          </div>
+          <div class="form-row">
+            <label>Zone optique (mm)</label>
+            <div class="slider-wrap">
+              <input id="og-zone" type="range" min="60" max="85" step="5" value="65">
+              <span id="og-zone-label">6.5</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Capot (µm)</label>
+            <div class="slider-wrap">
+              <input id="og-capot" type="range" min="0" max="2" step="1" value="2">
+              <span id="og-capot-label">110</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Ablation centrale (µm)</label>
+            <input id="og-ablation" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>K post-op (D)</label>
+            <input id="og-kpost" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Mur LASIK (µm)</label>
+            <input id="og-mur-lasik" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>PTA LASIK (%)</label>
+            <input id="og-pta-lasik" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>Mur PKR (µm)</label>
+            <input id="og-mur-pkr" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+          <div class="form-row">
+            <label>PTA PKR (%)</label>
+            <input id="og-pta-pkr" type="text" readonly class="colored-empty">
+            <span class="icon"></span>
+          </div>
+        </form>
       </div>
     </div>
+
     <div class="anisometropie-block">
       <label>Différence équivalent sphérique OD/OG :</label>
       <input id="anisometropie" type="text" readonly class="colored-empty">
       <span class="icon"></span>
     </div>
+
     <div class="buttons">
       <button onclick="resetFields()">Réinitialiser</button>
     </div>
   </div>
 
   <script>
-    // **Ici, colle exactement TON JavaScript d'origine**,
-    // sans rien toucher.** Ça inclut getFloat, updateFields, updateAll, resetFields, listeners, etc.
-    // Ça fonctionnait, il n’y a plus qu’à le réutiliser.
+    // Couleurs
+    const GREEN = "colored-green";
+    const ORANGE = "colored-orange";
+    const RED = "colored-red";
+    const EMPTY = "colored-empty";
+
+    function setBorderClass(input, c) {
+      input.classList.remove(GREEN, ORANGE, RED, EMPTY);
+      input.classList.add(c);
+    }
+    function getFloat(el) {
+      let v = el.value.replace(",", ".");
+      return parseFloat(v);
+    }
+    function getCentralAblation(sphere, cylinder) {
+      const table = {
+        "-1|0":22,"-2|0":38,"-3|0":54,"-4|0":70,"-5|0":86,"-6|0":101,"-7|0":117,"-8|0":133,"-9|0":148,"-10|0":164,
+        "-1|-1":36,"-2|-1":52,"-3|-1":68,"-4|-1":84,"-5|-1":100,"-6|-1":116,"-7|-1":132,"-8|-1":148,"-9|-1":164,"-10|-1":180,
+        "-1|-2":50,"-2|-2":66,"-3|-2":82,"-4|-2":98,"-5|-2":114,"-6|-2":130,"-7|-2":146,"-8|-2":162,"-9|-2":178,"-10|-2":194
+      };
+      const key = `${-Math.abs(Math.round(sphere))}|${Math.round(cylinder)}`;
+      return table[key] ?? Math.round(20 + 16*Math.abs(sphere) + 8*Math.abs(cylinder));
+    }
+    function colorField(input, val, conds) {
+      const cls = isNaN(val)||val==="" ? EMPTY
+                : conds.red(val)   ? RED
+                : conds.orange && conds.orange(val) ? ORANGE
+                : GREEN;
+      setBorderClass(input, cls);
+      // icône
+      const icon = input.nextElementSibling;
+      icon.textContent = cls===GREEN ? "✓" 
+                       : cls===ORANGE? "•" 
+                       : cls===RED   ? "✕" 
+                       : "";
+    }
+    function fieldThresholds(id) {
+      if (id.includes("pachy"))  return {red:x=>x<470||x>700, orange:x=>x<500||x>650};
+      if (id.includes("kmin"))   return {red:x=>x<39||x>49,  orange:x=>x<41||x>47};
+      if (id.includes("kmax"))   return {red:x=>x<40||x>56,  orange:x=>x<43||x>54};
+      if (id.includes("pupille"))return {red:x=>x>7,        orange:x=>x>6};
+      if (id.includes("equiv"))  return {red:x=>x>5||x<-10, orange:x=>x>3||x<-7};
+      if (id.includes("ablation"))return{red:x=>x>140,      orange:x=>x>120};
+      if (id.includes("mur-lasik"))return{red:x=>x<280,     orange:x=>x<320};
+      if (id.includes("pta-lasik"))return{red:x=>x>40,      orange:x=>x>38};
+      if (id.includes("mur-pkr")) return {red:x=>x<320,     orange:x=>x<350};
+      if (id.includes("pta-pkr")) return {red:x=>x>38,      orange:x=>x>36};
+      if (id.includes("kpost"))   return {red:x=>x<34||x>50, orange:x=>x<36||x>48};
+      if (id.includes("sphere"))  return {red:x=>x>5||x<-10, orange:x=>x>3||x<-7};
+      if (id.includes("cylinder"))return {red:x=>x<-6||x>0, orange:x=>x<-4};
+      return {red:x=>false, orange:x=>false};
+    }
+
+    function updateFields(eye) {
+      const sphereEl   = document.getElementById(`${eye}-sphere`);
+      const cylinderEl = document.getElementById(`${eye}-cylinder`);
+      const equivEl    = document.getElementById(`${eye}-equiv`);
+      const pachyEl    = document.getElementById(`${eye}-pachy`);
+      const kminEl     = document.getElementById(`${eye}-kmin`);
+      const kmaxEl     = document.getElementById(`${eye}-kmax`);
+      const pupilleEl  = document.getElementById(`${eye}-pupille`);
+      const zoneEl     = document.getElementById(`${eye}-zone`);
+      const capotEl    = document.getElementById(`${eye}-capot`);
+      const abEl       = document.getElementById(`${eye}-ablation`);
+      const kpostEl    = document.getElementById(`${eye}-kpost`);
+      const mlEl       = document.getElementById(`${eye}-mur-lasik`);
+      const ptaLEl     = document.getElementById(`${eye}-pta-lasik`);
+      const mpEl       = document.getElementById(`${eye}-mur-pkr`);
+      const ptaPEl     = document.getElementById(`${eye}-pta-pkr`);
+
+      const s = getFloat(sphereEl), c = getFloat(cylinderEl);
+      // équivalent
+      let eq = ""; if (!isNaN(s)&&!isNaN(c)) eq = (s + c/2).toFixed(2);
+      equivEl.value = eq;
+      // pachy, kmin, kmax, pupille
+      const pachy = getFloat(pachyEl), kmin = getFloat(kminEl), kmax = getFloat(kmaxEl), pup = getFloat(pupilleEl);
+
+      // labels sliders
+      document.getElementById(`${eye}-zone-label`).textContent   = (zoneEl.value/10).toFixed(1);
+      const capVal = 90 + parseInt(capotEl.value)*10;
+      document.getElementById(`${eye}-capot-label`).textContent = capVal;
+
+      // ablation
+      let abl=""; if(!isNaN(s)&&!isNaN(c)) abl=getCentralAblation(s,c);
+      abEl.value = abl;
+
+      // k post
+      let kp=""; if(!isNaN(kmin)&&!isNaN(s)) kp=(kmin+s).toFixed(2);
+      kpostEl.value = kp;
+
+      // mur & pta LASIK
+      if(!isNaN(pachy)&&abl!=="") {
+        const ml = pachy - capVal - abl;
+        mlEl.value = Math.round(ml);
+        ptaLEl.value = ((pachy-ml)/pachy*100).toFixed(1);
+        const mp = pachy - 54 - abl;
+        mpEl.value = Math.round(mp);
+        ptaPEl.value = ((pachy-mp)/pachy*100).toFixed(1);
+      }
+
+      // code couleur + icônes
+      [
+        [sphereEl, s],[cylinderEl, c],[equivEl, eq],[pachyEl, pachy],
+        [kminEl, kmin],[kmaxEl, kmax],[pupilleEl, pup],
+        [abEl, abl],[kpostEl, kp],[mlEl, getFloat(mlEl)],[ptaLEl, getFloat(ptaLEl)],
+        [mpEl, getFloat(mpEl)],[ptaPEl, getFloat(ptaPEl)]
+      ].forEach(([el,val]) => colorField(el,val,fieldThresholds(el.id)));
+    }
+
+    function updateAll() {
+      ["od","og"].forEach(updateFields);
+      const oEq = getFloat(document.getElementById("od-equiv"));
+      const gEq = getFloat(document.getElementById("og-equiv"));
+      const anis = document.getElementById("anisometropie");
+      anis.value = (!isNaN(oEq)&&!isNaN(gEq)) ? Math.abs(oEq-gEq).toFixed(2) : "";
+      // couleur icône anis
+      colorField(anis, anis.value, fieldThresholds("anisometropie"));
+    }
+
+    function resetFields() {
+      document.querySelectorAll("input[type=number], input[type=text]").forEach(i => i.value = "");
+      ["od","og"].forEach(e=>{
+        document.getElementById(e+"-zone").value = 65;
+        document.getElementById(e+"-capot").value = 2;
+      });
+      document.querySelectorAll('input[type=radio][value=lasik]').forEach(r=>r.checked=true);
+      updateAll();
+    }
+
+    // listeners
+    window.onload = () => {
+      // champs texte et sliders
+      document.querySelectorAll("input").forEach(i=>{
+        i.addEventListener("input", updateAll);
+      });
+      resetFields();
+    };
   </script>
 </body>
 </html>
-
